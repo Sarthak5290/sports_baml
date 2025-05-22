@@ -19,7 +19,7 @@ import type { BamlRuntime, BamlCtxManager, ClientRegistry, Image, Audio } from "
 import { toBamlError, HTTPRequest } from "@boundaryml/baml"
 import type { Checked, Check } from "./types"
 import type * as types from "./types"
-import type {Ingredient, PartIngredient, PartSteps, Recipe, Resume} from "./types"
+import type {Resume, SportInfo} from "./types"
 import type TypeBuilder from "./type_builder"
 
 type BamlCallOptions = {
@@ -51,15 +51,15 @@ export class AsyncHttpRequest {
     }
   }
   
-  async GetRecipe(
-      query: string,
+  async GetSportInfo(
+      sport_name: string,
       __baml_options__?: BamlCallOptions
   ): Promise<HTTPRequest> {
     try {
       return await this.runtime.buildRequest(
-        "GetRecipe",
+        "GetSportInfo",
         {
-          "query": query
+          "sport_name": sport_name
         },
         this.ctxManager.cloneContext(),
         __baml_options__?.tb?.__tb(),
@@ -97,15 +97,15 @@ export class AsyncHttpStreamRequest {
     }
   }
   
-  async GetRecipe(
-      query: string,
+  async GetSportInfo(
+      sport_name: string,
       __baml_options__?: BamlCallOptions
   ): Promise<HTTPRequest> {
     try {
       return await this.runtime.buildRequest(
-        "GetRecipe",
+        "GetSportInfo",
         {
-          "query": query
+          "sport_name": sport_name
         },
         this.ctxManager.cloneContext(),
         __baml_options__?.tb?.__tb(),

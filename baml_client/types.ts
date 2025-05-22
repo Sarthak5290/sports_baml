@@ -46,37 +46,21 @@ export function all_succeeded<CheckName extends string>(checks: Record<CheckName
 export function get_checks<CheckName extends string>(checks: Record<CheckName, Check>): Check[] {
     return Object.values(checks)
 }
-export interface Ingredient {
-  name: string
-  amount?: number | null
-  unit?: string | null
-  
-}
-
-export interface PartIngredient {
-  title: string
-  ingredients: Ingredient[]
-  
-}
-
-export interface PartSteps {
-  title: string
-  steps: string[]
-  
-}
-
-export interface Recipe {
-  number_of_servings: number
-  ingredients: (Ingredient | PartIngredient)[]
-  instructions: (string | PartSteps)[]
-  
-}
-
 export interface Resume {
   name: string
   email: string
   experience: string[]
   skills: string[]
+  
+}
+
+export interface SportInfo {
+  name: string
+  description: string
+  origin: string
+  equipment: string[]
+  players_count: string
+  fun_facts: string[]
   
 }
 

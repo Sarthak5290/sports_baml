@@ -22,22 +22,16 @@ import { DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_RUNTIME } from "./
 export default class TypeBuilder {
     private tb: _TypeBuilder;
     
-    Ingredient: ClassViewer<'Ingredient', "name" | "amount" | "unit">;
-    
-    PartIngredient: ClassViewer<'PartIngredient', "title" | "ingredients">;
-    
-    PartSteps: ClassViewer<'PartSteps', "title" | "steps">;
-    
-    Recipe: ClassViewer<'Recipe', "number_of_servings" | "ingredients" | "instructions">;
-    
     Resume: ClassViewer<'Resume', "name" | "email" | "experience" | "skills">;
+    
+    SportInfo: ClassViewer<'SportInfo', "name" | "description" | "origin" | "equipment" | "players_count" | "fun_facts">;
     
     
 
     constructor() {
         this.tb = new _TypeBuilder({
           classes: new Set([
-            "Ingredient","PartIngredient","PartSteps","Recipe","Resume",
+            "Resume","SportInfo",
           ]),
           enums: new Set([
             
@@ -45,24 +39,12 @@ export default class TypeBuilder {
           runtime: DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_RUNTIME
         });
         
-        this.Ingredient = this.tb.classViewer("Ingredient", [
-          "name","amount","unit",
-        ]);
-        
-        this.PartIngredient = this.tb.classViewer("PartIngredient", [
-          "title","ingredients",
-        ]);
-        
-        this.PartSteps = this.tb.classViewer("PartSteps", [
-          "title","steps",
-        ]);
-        
-        this.Recipe = this.tb.classViewer("Recipe", [
-          "number_of_servings","ingredients","instructions",
-        ]);
-        
         this.Resume = this.tb.classViewer("Resume", [
           "name","email","experience","skills",
+        ]);
+        
+        this.SportInfo = this.tb.classViewer("SportInfo", [
+          "name","description","origin","equipment","players_count","fun_facts",
         ]);
         
         

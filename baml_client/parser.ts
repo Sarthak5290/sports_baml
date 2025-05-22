@@ -20,7 +20,7 @@ import { toBamlError } from "@boundaryml/baml"
 import type { Checked, Check } from "./types"
 import type { partial_types } from "./partial_types"
 import type * as types from "./types"
-import type {Ingredient, PartIngredient, PartSteps, Recipe, Resume} from "./types"
+import type {Resume, SportInfo} from "./types"
 import type TypeBuilder from "./type_builder"
 
 export class LlmResponseParser {
@@ -45,19 +45,19 @@ export class LlmResponseParser {
     }
   }
   
-  GetRecipe(
+  GetSportInfo(
       llmResponse: string,
       __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry }
-  ): Recipe {
+  ): SportInfo {
     try {
       return this.runtime.parseLlmResponse(
-        "GetRecipe",
+        "GetSportInfo",
         llmResponse,
         false,
         this.ctxManager.cloneContext(),
         __baml_options__?.tb?.__tb(),
         __baml_options__?.clientRegistry,
-      ) as Recipe
+      ) as SportInfo
     } catch (error) {
       throw toBamlError(error);
     }
@@ -87,19 +87,19 @@ export class LlmStreamParser {
     }
   }
   
-  GetRecipe(
+  GetSportInfo(
       llmResponse: string,
       __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry }
-  ): partial_types.Recipe {
+  ): partial_types.SportInfo {
     try {
       return this.runtime.parseLlmResponse(
-        "GetRecipe",
+        "GetSportInfo",
         llmResponse,
         true,
         this.ctxManager.cloneContext(),
         __baml_options__?.tb?.__tb(),
         __baml_options__?.clientRegistry,
-      ) as partial_types.Recipe
+      ) as partial_types.SportInfo
     } catch (error) {
       throw toBamlError(error);
     }
